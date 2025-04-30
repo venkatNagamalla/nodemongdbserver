@@ -2,6 +2,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const userModel = require("./models/users");
+const port = process.env.PORT || 3000;
 
 const app = express();
 
@@ -29,6 +30,6 @@ app.post("/create-user", async (req,res) => {
 
 
 
-app.listen(3000,() => {
+app.listen(port,() => {
     console.log("App started at 3000")
 });
