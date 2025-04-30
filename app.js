@@ -1,12 +1,12 @@
-
+const dotenv = require("dotenv")
+dotenv.config();
 const express = require("express");
 const mongoose = require("mongoose");
 const userModel = require("./models/users");
-const port = process.env.PORT || 3000;
 
 const app = express();
 
-mongoose.connect("mongodb://localhost:27017/sampleDb")
+mongoose.connect(process.env.MONGODB_CONNECT_URL)
 
 app.use(express.json());
 
@@ -30,6 +30,6 @@ app.post("/create-user", async (req,res) => {
 
 
 
-app.listen(port,() => {
+app.listen(process.env.PORT,() => {
     console.log("App started at 3000")
 });
